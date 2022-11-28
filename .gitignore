@@ -2,3 +2,5 @@ target/
 vendor/
 composer.phar
 composer.lock
+.vagrant/
+client_secrets.json
