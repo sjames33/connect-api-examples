@@ -30,9 +30,10 @@ function obtainOAuthToken($authorizationCode) {
   $body_grantType = 'authorization_code';
   $body = new ObtainTokenRequest(
     getenv('SQ_APPLICATION_ID'),
-    getenv('SQ_APPLICATION_SECRET'),
+    // getenv('SQ_APPLICATION_SECRET'), // Removed as-per API Explorer Obtain Token
     $body_grantType
   );
+  $body->setClientSecret(getenv('SQ_APPLICATION_SECRET')); // Added-Moved client_secret here as-per API Explorer Obtain Token
   $body->setCode($authorizationCode);
 
   // Call obtainToken endpoint to get the OAuth tokens.

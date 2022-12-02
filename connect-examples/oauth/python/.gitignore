@@ -1,2 +1,4 @@
 .env
 __pycache__/
+_notes_/
+.DS_Store
