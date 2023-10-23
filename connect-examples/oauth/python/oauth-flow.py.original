@@ -11,7 +11,7 @@
 # 5. The Obtain Token endpoint returns an access token your application can use in subsequent requests
 #    to the Connect API.
 
-from flask import Flask, request, render_template  # alts for these
+from flask import Flask, request, render_template
 from square.client import Client
 from dotenv import load_dotenv
 import os
@@ -54,8 +54,6 @@ def callback():
 
   # Extract the returned authorization code from the URL
   authorization_code = request.args.get('code')
-  # print("authorization_code: " + str(authorization_code))
-
   if authorization_code:
 
     # Provide the code in a request to the Obtain Token endpoint
@@ -64,10 +62,8 @@ def callback():
     body['client_secret'] = application_secret
     body['code'] = authorization_code
     body['grant_type'] = 'authorization_code'
-    # print("body: " + str(body))
 
     response = obtain_token(body)
-    # print("response: " + str(response))
 
     if response.body:
 
